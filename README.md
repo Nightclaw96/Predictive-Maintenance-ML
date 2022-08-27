@@ -71,4 +71,8 @@ Support Vector Machines are used for binary classification. The **hyperparameter
 
 A composite classifier is built with the output of both models. During consensus, the common decision is chosen. When both models disagree, conditional probability is used for each category to determine which category the testing sample belongs to.
 
+![](Conf_Matrix.png)
 
+*Confusion Matrix Example*
+
+The conditional probability is evaluated by performing **5-fold cross fold validation** and calculating which level of abnormality has the highest probability given the output of each model. 
