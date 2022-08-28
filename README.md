@@ -55,11 +55,13 @@ For sample groups with more than 7 samples (eg. Normal), the Mahalanobis distanc
 
 The principal components are evaluated based on the normal data after the outliers have been removed.
 
-![](PCA_Control_Chart.png)
-
 ## Stage 1 (PCA - Control Limits)
 
 The control limits are set based on the first principal component and are fine tuned to have a low rate of false positives. The control limits based classifier is converted to a binary classifier between normal and abnormal conditions. This is done by converting all labels greater than 1 as being equal to 1.
+
+![](PCA_Control_Chart.png)
+
+*Sample Control Chart*
 
 ## Stage 2 (Recursive SVM Classifier)
 
