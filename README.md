@@ -1,4 +1,5 @@
 # Predictive-Maintenance-ML
+Note: For the python code, reach out to me at https://www.linkedin.com/in/vishalkannan/
 Built a composite machine learning model to predict the working condition of an engine based on the multivariate performance indicators
 
 ## Index
