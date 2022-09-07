@@ -20,8 +20,8 @@ A leading NA automaker performed a series of experiments to
 predict the performance of their engine under normal conditions
 and abnormal conditions. The abnormality is set at four different
 levels. The nature and levels of abnormality are protected by an 
-NDA. The output measured is of a multivariate nature with seven
-different outputs. The outputs measured and the output data are
+NDA. The output measured is of a multivariate nature with specific number of
+different outputs. The outputs measured are of multi-class nature and the output data is
 protected by the NDA.
 
 ![](Input_Data.png)
