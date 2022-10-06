@@ -52,19 +52,15 @@ O1 is logarithmically scaled. The variance is significantly scaled down and the 
 
 For sample groups with more than 7 samples (eg. Normal), the Mahalanobis distance is evaluated for each sample from the sample group mean. The chi-squared distribution is used to eliminate outliers based on the p value of 0.95. The restriction on sample group size (>7) is enforced to ensure that the covariance matrix is positive definite.
 
-## Principal Component Analysis
+## Baseline
 
-The principal components are evaluated based on the normal data after the outliers have been removed.
+The baseline is a quick multinomial logistic regression model for the multi-class classification
 
-## Stage 1 (PCA - Control Limits)
+## Multinomial Logistic Regression
 
-The control limits are set based on the first principal component and are fine tuned to have a low rate of false positives. The control limits based classifier is converted to a binary classifier between normal and abnormal conditions. This is done by converting all labels greater than 1 as being equal to 1.
+A simple parameter grid is setup to determine the hyperparameters by analyzing the accuracy of the classifier. A 5-fold cross validation is used to calculate the average precision, recall and F1 scores for each class.
 
-![](PCA_Control_Chart.png)
-
-*Sample Control Chart*
-
-## Stage 2 (Recursive SVM Classifier)
+## Recursive SVM Classifier
 
 Support Vector Machines are used for binary classification. The **hyperparameters** of the SVM classifier are fine tuned by converting the data into a normal vs abnormal binary classifier (labels > 1 are set to 1). A recursive Support Vector Machine algorithm is used to successively classify the testing samples into the appropriate label as shown below:
 
@@ -72,12 +68,9 @@ Support Vector Machines are used for binary classification. The **hyperparameter
 
 *Recursive SVM Classifier*
 
-## Composite Classifier
-
-A composite classifier is built with the output of both models. During consensus, the common decision is chosen. When both models disagree, conditional probability is used for each category to determine which category the testing sample belongs to.
-
 ![](Conf_Matrix.png)
 
 *Confusion Matrix Example*
 
-The conditional probability is evaluated by performing **5-fold cross fold validation** and calculating which level of abnormality has the highest probability given the output of each model. 
+The conditional probability is evaluated by performing **5-fold cross fold validation**
+The precision, recall and F1 scores improve significantly for each class
