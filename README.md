@@ -9,10 +9,10 @@ Built a composite machine learning model to predict the working condition of an 
 4. Feature Engineering
 - Logarithmic Scaling
 - Outlier Removal
-5. Principal Component Analysis
-6. Stage 1
-7. Stage 2
-8. Composite Classifier
+5. Baseline
+6. Multinomial Logistic Regression
+7. Recursive SVM Classifier
+8. Sample Confusion Matrix
 
 ## Background
 
